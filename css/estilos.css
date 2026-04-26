@@ -1,0 +1,295 @@
+@charset "UTF-8"; /* Caracteres especiais */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"); /* Ativando icons do Bootstrap 5.3 */
+
+@font-face {
+      font-family: 'Peace Sans';
+      src: url('https://cdn.jsdelivr.net/gh/eu-pedro-miguel/minha-fonte@v1.2/Peace Sans Webfont.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+}
+
+@font-face {
+      font-family: Gantari;
+      src: url('https://cdn.jsdelivr.net/gh/eu-pedro-miguel/minha-fonte@v1.2/Gantari-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+}
+
+/* HTML designado: index.php */
+
+* { /* Resetando configurações */
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      letter-spacing: 1.5px;
+}
+
+html  { /* Padronização */
+      font-size: 16px;
+}
+
+:root {
+      --cor-fundo-principal: #fbfff7;
+      --cor-fundo-2: #24402B;
+      --cor-texto-principal: black;
+      --cor-texto-2: #D3F4E4;
+      --cor-texto-3: #3B5249;
+      --cor-destaque: #A3D16B;
+}
+
+/* index.php */
+
+body { /* Configurações dos corpo da página */
+      font: normal 500 1rem/1.5 Gantari, 'Segoe UI', Ebrima, Arial, sans-serif; /* shorthand(abreviação) da fonte */
+      background-color: var(--cor-fundo-principal);
+}
+
+header { /* Configurações do cabeçalho */
+      background-color: var(--cor-fundo-2);
+      position: sticky; /* Posição parada no topo */
+      display: flex; /* Organização flex */
+      align-items: center; /* Centralizado verticalmente */
+      justify-content: center; /* Centralizado horizontal */
+      width: auto; /* Largura auto-preenchida */
+      height: fit-content; /* Altura sendo 10vh da viewport */
+      top: 0; /* Nenhum espaçamento do topo */
+      z-index: 75; /* Sobrepondo em todos outros elementos visuais */
+}
+
+h1 > a > .img_index {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-block: 20px;
+      max-width: 400px;
+}
+
+h1 > a {
+      text-align: center;
+      text-decoration: none;
+}
+
+h2 { /* Título h2 */
+      text-align: center; /* Título centralizado */
+      font-size: 1.5rem; /* Tamanho da fonte em relação tamanho do tamanho padrão do html */
+      margin-block: 10px; /* Espaçamento externo ao topo */
+}
+
+.layout { /* Layout principal */
+      width: clamp(300px, 100%, 800px);/* Largura responsiva -> O que for menor em relação à largura, utilze */
+      padding: 5px;
+      margin: 0 auto; /* Espaçamento externo -> 1px ao topo, auto horizontal e 0 no bottom */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+}
+
+.layout-img { /* Layout das imagens */
+      position: relative; /* Posição relativa a si próprio */
+      overflow: hidden; /* Scroll-bar oculto */
+      margin-bottom: 5px; /* Espaçamento externo ao bottom */
+}
+
+.img_index { /* Imagem */
+      width: 100%; /* Ocupa toda largura do container pai */
+      display: block; /* Vira um bloco */
+      border-radius: 10px; /* Borda de 10px */
+      height: auto; /* Altura auto */
+}
+
+.img-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(0, 0, 0, 0.550);
+      border-radius: 10px;
+      z-index: 10;
+}
+
+.layout-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.250);
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      z-index: 5;
+}
+
+.layout-img:hover::after {
+      opacity: 1;
+}
+
+h3, .fa-book-open-reader, .fa-file-lines {
+      color: white;
+      font-size: 1.3em;
+      font-weight: bold;
+      user-select: none;
+}
+
+.layout-obs {
+      margin: 4px;
+      display: flex;
+      flex-direction: column;
+      color: #171412;
+      align-items: center;
+}
+
+h4 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+}
+
+p {
+      transition: linear .2s ;
+}
+
+.obs-sumir {
+      opacity: 0;
+      transform: translateY(-10px);
+}
+
+@media screen and (max-width: 470px) {
+      h1 > a > .img_index {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-block: 20px;
+            max-width: 300px;
+      }
+}
+
+@media screen and (max-width: 350px) {
+      h3 {
+            font-size: 25px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+      }
+}
+
+/* login.php */
+
+.layout-login {
+      background-color: #fbfff7;
+      margin: 40px auto;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: row;
+      gap: 10px;
+      max-width: 400px;
+      min-width: 250px;
+      width: 70%;
+      height: auto;
+      box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.2);
+}
+
+:is(input[type="text"], input[type="password"], input[type="email"]) {
+      width: 240px;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: white;
+      border: 2px solid black;
+      outline: none;
+      display: block;
+      margin: 0 auto 15px;
+      transition: border linear .2s, background-color linear .2s, box-shadow linear .2s;
+      font: normal normal 1rem/1.5 Gantari, 'Segoe UI', Ebrima, Arial, sans-serif;
+}
+
+:is(input[type="text"], input[type="password"], input[type="email"]):focus-visible {
+      background-color: rgb(233, 233, 233);
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.500);
+}
+
+.layout-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.layout-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transform: translateX(-25%);
+      right: 10%;
+}
+
+.caixa-senha {
+      position: relative;
+}
+
+.caixa-senha input:not([type="radio"]) {
+      width: 240px;
+}
+
+.caixa-senha i {
+      position: absolute;
+      left: 88%;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      user-select: none;
+}
+
+button, .btn {
+      background-color: rgb(34, 34, 34);
+      margin-block: 10px;
+      color: white;
+      cursor: pointer;
+      border: 0;
+      border-radius: 5px;
+      padding: 10px;
+      transition: border linear .2s, background-color linear .2s, box-shadow linear .2s;
+      text-decoration: none;
+}
+
+:is(button, .btn):hover  {
+      background-color: rgb(57, 57, 57);
+}
+
+:is(button, .btn, .validar):focus-visible {
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.500);
+}
+
+.validar {
+      background-color: var(--cor-destaque);
+      color: var(--cor-texto-3);
+      cursor: pointer;
+      border: 0;
+      border-radius: 5px;
+      transition: border linear .2s, background-color linear .2s, box-shadow linear .2s;
+      display: block;
+      margin: 0 auto 10px;
+      font: bold normal 1rem/1.5 Gantari, 'Segoe UI', Ebrima, Arial, sans-serif;
+}
+
+.validar:hover {
+      background-color: #9ac565;
+}
+
+.layout-quiz {
+      background-color: #fbfff7;
+      margin: 40px auto;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      max-width: 30dvw;
+      min-width: 300px;
+      padding: 10px;
+      overflow-y: auto;
+      min-height: 200px;
+      max-height: 70dvh;
+      box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.2);
+}
